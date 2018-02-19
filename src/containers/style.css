@@ -1,0 +1,18 @@
+.map, .points {
+  border: 1px solid black;
+}
+
+.points {
+  float: left;
+  width: 29%;
+}
+
+.map {
+  float: right;
+  width: 70%;
+}
+
+.layout {
+  width: 100%;
+  margin: auto;
+}
