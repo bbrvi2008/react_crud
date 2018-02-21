@@ -3,15 +3,15 @@ import { arrayMove } from 'react-sortable-hoc';
 
 const initialState = [{
   id: 1,
-  title: "test1",
+  title: "Точка маршрута 1",
   coordinates: [55.63954474958304, 37.477276611324314] 
 }, {
   id: 2,
-  title: "test2",
+  title: "Точка маршрута 2",
   coordinates: [55.76517472661736, 37.820599365231125] 
 }, {
   id: 3,
-  title: "test3",
+  title: "Точка маршрута 3",
   coordinates: [55.82861069901381, 37.44431762695029] 
 }];
 
@@ -23,7 +23,7 @@ const points = (state = initialState, action) => {
         {
           id: action.id,
           title: action.title,
-          coordinates: [55.76, 37.64]
+          coordinates: action.coordinates
         }
       ];
     case EDIT_POINT:

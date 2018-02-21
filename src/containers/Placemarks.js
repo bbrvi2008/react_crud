@@ -4,29 +4,25 @@ import { connect } from 'react-redux'
 import Points from '../components/Points/index';
 import Map from '../components/Map';
 
-import { editPoint, removePoint, sortPoints } from '../actions/index'
+import { editPoint, removePoint, sortPoints, updateCenterCoordinates } from '../actions/index'
 
 import './style.css';
 
 class Placemarks extends React.Component {
-  onSort() {
-    console.log(arguments);
-  }
-
   render() {
-    const { points, onEditPoint, onRemovePoint, onSortPoints } = this.props;
+    const { points, centerCoordinates, onEditPoint, onRemovePoint, onSortPoints, onUpdateCenterCoordinates } = this.props;
 
     return <div className="layout">
       <Points points={points} onRemovePoint={onRemovePoint} onSortPoints={onSortPoints} />
-      <Map points={points} onEditPoint={onEditPoint} />
+      <Map points={points} centerCoordinates={centerCoordinates} onEditPoint={onEditPoint} onUpdateCenterCoordinates={onUpdateCenterCoordinates} />
     </div>;
   }
-
 };
 
 function mapStateToProps(state) {
   return {
-    points: state.points
+    points: state.points,
+    centerCoordinates: state.centerCoordinates
   }
 }
 
@@ -40,6 +36,9 @@ function mapDispatchToProps(dispatch) {
     },
     onSortPoints: ({oldIndex, newIndex}) => {
       dispatch(sortPoints(oldIndex, newIndex));
+    },
+    onUpdateCenterCoordinates: (coordinates) => {
+      dispatch(updateCenterCoordinates(coordinates));
     }
   }
 }

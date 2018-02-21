@@ -7,9 +7,12 @@ class Point extends React.Component {
   render() {
     const { id, title, onRemovePoint } = this.props;
 
-    return <li className="point">
-      {title} <button onClick={() => onRemovePoint(id)} >Remove</button>
-    </li>
+    return (
+      <li className="point">
+        <span title={title}>{title}</span><button onClick={() => onRemovePoint(id)} className="button remove-button">x</button>
+      </li>
+    );
+    
   }
 }
 

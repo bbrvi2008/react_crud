@@ -1,3 +1,33 @@
+.layout {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid grey;
+  border-radius: 5px;
+  height: 100%;
+}
+
+.points {
+  width: 30%;
+  min-width: 90px;
+  background-color: #fcfbf9;
+  border-right: 1px solid grey;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  width: 70%;
+}
+
+
+
+
+
+
+
+
+/*
 .map, .points {
   border: 1px solid black;
 }
@@ -14,5 +44,6 @@
 
 .layout {
   width: 100%;
-  margin: auto;
-}
+  padding: 15px;
+  box-sizing: border-box
+}*/

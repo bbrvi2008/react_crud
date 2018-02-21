@@ -2,16 +2,37 @@ import React from 'react';
 import { YMaps, Map, Placemark, Polyline } from 'react-yandex-maps';
 
 class MyMap extends React.Component {
-  
+  shouldComponentUpdate(nextProps, nextState) {
+    const curCenter = this.props.centerCoordinates;
+    const newCenter = nextProps.centerCoordinates;
+    return !(curCenter != newCenter);
+  }
+
 
   render() {
-    const { points, onEditPoint } = this.props;
+    const { points, centerCoordinates, onEditPoint, onUpdateCenterCoordinates } = this.props;
     const pointsRoute = points.map((point) => point.coordinates);
 
-    const mapState = { center: [55.76, 37.64], zoom: 10};
+    const mapState = { 
+      center: centerCoordinates, 
+      zoom: 10, 
+      controls: [
+        'fullscreenControl', 
+        'zoomControl'
+      ] 
+    };
     return <div className="map">
       <YMaps>
-        <Map state={mapState} width={`100%`} height={400} >
+        <Map 
+          state={mapState} 
+          width={`100%`} height={`100%`}
+          events={{
+            onActionEnd: function(e) {
+              var centerCoordinates = e.get('target').getCenter();
+              onUpdateCenterCoordinates(centerCoordinates);
+            }
+          }}
+        >
           <Polyline
             geometry={{
               // Specifying the coordinates of the vertices of the polyline.
@@ -50,8 +71,8 @@ class MyMap extends React.Component {
                   
                 }}
                 events={{
-                  onDragEnd: function(e) {
-                    var coordinates = e.originalEvent.target.geometry.getCoordinates();
+                  onDrag: function(e) {
+                    var coordinates = e.get('target').geometry.getCoordinates();
                     onEditPoint(point.id, coordinates);
                   }
                 }}
@@ -62,7 +83,6 @@ class MyMap extends React.Component {
       </YMaps>
     </div>;
   }
-
 };
 
 export default MyMap;

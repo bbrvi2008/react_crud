@@ -10,7 +10,6 @@ class Points extends React.Component {
     const { points, onRemovePoint, onSortPoints } = this.props;
 
     return <div className="points">
-      points
       <AddPoint />
       <PointList points={points} onRemovePoint={onRemovePoint} onSortEnd={onSortPoints}></PointList>
     </div>;

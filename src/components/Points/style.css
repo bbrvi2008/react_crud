@@ -1,3 +1,69 @@
+.points_form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.points_form_input {
+  width: 100%;
+  margin-right: 10px;
+  display: inline;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.points ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: auto;
+}
+
 .point {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 5px;
+  margin: 5px;
+  background-color: #f4f4f4;
+  border: 1px solid grey;
+  border-radius: 5px;
+  cursor: row-resize;
+}
+
+.point > span {
+  overflow: hidden;
+  margin-right: 10px;
+  text-overflow: ellipsis;
+  cursor: help;
+}
+
+.button {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 15px;
   cursor: pointer;
 }
+
+.add-button {
+  background: #68f442;
+}
+
+.remove-button {
+  background: #f73322;
+}
+
+/*
+
+width: 150px;
+    margin: 0;
+    padding: 10px 15px;
+    list-style: none;
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+
+    */
