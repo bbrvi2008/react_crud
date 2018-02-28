@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "title": "iPad 4 Mini123",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "H&M T-Shirt White"
+    },
+    {
+      "id": 3,
+      "title": "Charli XCX - Sucker CD"
+    },
+    {
+      "title": "Test",
+      "id": 12
+    },
+    {
+      "title": "123123123",
+      "id": 16
+    },
+    {
+      "title": "sdf",
+      "id": 17
+    },
+    {
+      "title": "123123",
+      "id": 18
+    }
+  ]
+}

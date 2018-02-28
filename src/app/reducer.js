@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import points from './points';
-import centerCoordinates from './center';
+import products from '../products/reducer';
 
 const placemarksApp = combineReducers({
-  points,
-  centerCoordinates
+  products
 });
 
 export default placemarksApp;
